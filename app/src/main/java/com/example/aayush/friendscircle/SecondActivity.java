@@ -13,14 +13,14 @@ import android.widget.ImageButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import static com.example.aayush.friendscircle.R.id.nameInput;
+import static com.example.aayush.friendscircle.R.id.phnInput;
 
 /**
  * Created by Aayush on 02-02-2017.
  */
 
 public class SecondActivity extends AppCompatActivity {
-    EditText nameInput;
+    EditText phnInput;
     boolean flag;
     int count=0;
     //Toast newT;
@@ -33,17 +33,18 @@ public class SecondActivity extends AppCompatActivity {
 
         ImageButton proceedBtn= (ImageButton)findViewById(R.id.proceedBtn);
 
-        nameInput= (EditText)findViewById(R.id.nameInput);
+        phnInput= (EditText)findViewById(R.id.phnInput);
 
         flag= false;
 
         proceedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name= nameInput.getText().toString();
-                if(name.length()==10) {
+                String phnno= phnInput.getText().toString();
+
+                if(phnno.length()==10) {
                     for (int i = 0; i < 10; i++) {
-                        if (name.charAt(i) <= 57 && name.charAt(i) >= 48) {
+                        if (phnno.charAt(i) <= 57 && phnno.charAt(i) >= 48) {
                             flag = true;
                         } else {
                             flag = false;
@@ -51,7 +52,8 @@ public class SecondActivity extends AppCompatActivity {
                         }
                     }
                     if ((flag == true)) {
-                        if (name.length() == 10) {
+                        if (phnno.length() == 10) {
+                            intent.putExtra("phone", phnno);
                             startActivity(intent);
                         }
                     }
@@ -64,6 +66,7 @@ public class SecondActivity extends AppCompatActivity {
                     Context context = getApplicationContext();
                     Toast.makeText(context, "Enter a valid Phone number !", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
     }
