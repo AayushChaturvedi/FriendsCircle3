@@ -15,6 +15,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Aayush on 05-02-2017.
@@ -30,10 +32,31 @@ public class BackgroundDBMS extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
+        /*
+          protected Map<String, String> getParams(){
+            Map<String, String> params1 = new HashMap<String, String>();
+            params1.put("key1", value1);
+            params1.put("key2",value2);
+            params1.put("key3",value3);
+            return checkParams(params1);
+        };
 
-        String reg_url= "http://10.0.2.2/php/login.php";
+
+        private Map<String, String> checkParams(Map<String, String> map){
+            Iterator<Entry<String, String>> it = map.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<String, String> pairs = (Map.Entry<String, String>)it.next();
+                if(pairs.getValue()==null){
+                    map.put(pairs.getKey(), "");
+                }
+            }
+            return map;
+        }
+        */
+
+        String reg_url= "http://175.25.21.200/php/login.php";
         String name= params[0];
-        String phnno=params[1];
+        String phnNo=params[1];
         String email=params[3];
         String dob= params[2];
         try {
@@ -44,7 +67,7 @@ public class BackgroundDBMS extends AsyncTask<String, Void, String> {
             OutputStream OS= httpURLConnection.getOutputStream();
             BufferedWriter bufferedWriter= new BufferedWriter(new OutputStreamWriter(OS, "UTF-8"));
             String data= URLEncoder.encode("name","UTF-8" ) + "=" + URLEncoder.encode(name, "UTF-8")+"&"+
-                    URLEncoder.encode("phno", "UTF-8")+ "=" + URLEncoder.encode(phnno, "UTF-8")+"&"+
+                    URLEncoder.encode("phno", "UTF-8")+ "=" + URLEncoder.encode(phnNo, "UTF-8")+"&"+
                     URLEncoder.encode("DOB", "UTF-8")+ "=" + URLEncoder.encode(dob, "UTF-8")+"&"+
                     URLEncoder.encode("email", "UTF-8")+ "=" + URLEncoder.encode(email, "UTF-8");
 
