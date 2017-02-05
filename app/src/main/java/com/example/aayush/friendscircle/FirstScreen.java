@@ -13,6 +13,7 @@ public class FirstScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_screen);
         final Intent intent= new Intent(this, SecondActivity.class);
+        //final Intent intent= new Intent(this, MapActivity.class);
 
         Button button= (Button)findViewById(R.id.button);
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
-    tools:context="com.example.aayush.friendscircle.MapsActivity">
+    tools:context="com.sdsmdg.arpit.mapsactivity.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

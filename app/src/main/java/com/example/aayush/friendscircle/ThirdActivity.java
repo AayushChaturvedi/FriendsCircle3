@@ -28,8 +28,6 @@ public class ThirdActivity extends Activity {
         datePicker = (DatePicker) findViewById(R.id.datePicker);
         name= (EditText)findViewById(R.id.name);
         email= (EditText)findViewById(R.id.email);
-
-
     }
 
     public void userReg(View v){
@@ -45,14 +43,13 @@ public class ThirdActivity extends Activity {
         String monthS= Integer.toString(month);
         String yearS= Integer.toString(year);
         String dob= dayS.concat("-").concat(monthS).concat("-").concat(yearS);
-        //Bundle bundle= getIntent().getExtras();
-        //phnno= bundle.getString("phone");
-
+        Bundle bundle= getIntent().getExtras();
+        phnno= bundle.getString("phone");
         BackgroundDBMS backgroundDBMS= new BackgroundDBMS(this);
         backgroundDBMS.execute(nameValue, phnno, dob, emailValue);
         finish();
 
-        Intent intent= new Intent(this, Empty.class);
+        Intent intent= new Intent(this, MapActivity.class);
         startActivity(intent);
     }
 
